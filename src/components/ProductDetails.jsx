@@ -39,8 +39,8 @@ export const ProductDetails = () => {
     return []
   })
 
-  function onCartAdd(item, quantity) {
-    const newItem = { ...item, quantity: quantity }
+  function onCartAdd(item) {
+    const newItem = { ...item }
 
     const cartItems = [...cart, newItem]
 
@@ -65,19 +65,33 @@ export const ProductDetails = () => {
     <>
       {product && (
         <>
-          <h1>{product.name}</h1>
-          <p>{product.price}</p>
-          <p>10</p>
+          {/* :grid-cols-2  grid-cols-3 */}
+          <div className="md:grid flex flex-col  md:grid-cols-2  gap-6 auto-rows-[350px] mt-16  justify-center items-center">
+            <img className="w-48 mx-auto border" src={product.image} alt="" />
+            <div>
+              <h1 className="uppercase font-bold text-lg mb-6">
+                {product.name}
+              </h1>
 
-          {isInCart ? (
-            <button onClick={() => onCarRemove(product.id)}>
-              Remover do carrinho
-            </button>
-          ) : (
-            <button onClick={() => onCartAdd(product, 10)}>
-              Adicionar ao carrinho
-            </button>
-          )}
+              <p className="mb-6">Preço: {product.price}</p>
+
+              {isInCart ? (
+                <button
+                  className="uppercase  bg-red-400 p-4 rounded"
+                  onClick={() => onCarRemove(product.id)}
+                >
+                  Remover do carrinho
+                </button>
+              ) : (
+                <button
+                  className="uppercase bg-lime-400 p-4 rounded"
+                  onClick={() => onCartAdd(product)}
+                >
+                  Adicionar ao carrinho
+                </button>
+              )}
+            </div>
+          </div>
         </>
       )}
     </>
