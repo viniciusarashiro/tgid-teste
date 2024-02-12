@@ -4,13 +4,15 @@ import { BrowserRouter } from 'react-router-dom'
 import { Header } from './Header'
 import '@testing-library/jest-dom'
 
-test('renders header with links', () => {
-  render(
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>
-  )
+describe('Products', () => {
+  test('renders products search input', () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
 
-  expect(screen.getByText('Produtos')).toBeInTheDocument()
-  expect(screen.getByText('Carrinho')).toBeInTheDocument()
+    expect(screen.getByText('Produtos')).toBeInTheDocument()
+    expect(screen.getByText('Carrinho')).toBeInTheDocument()
+  })
 })
