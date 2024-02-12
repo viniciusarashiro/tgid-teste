@@ -22,14 +22,37 @@ export const ProductDetails = () => {
     fetchData()
   }, [])
 
+  const [cart, setCart] = useState(() => {
+    const itemsOnStorage = localStorage.getItem('cart')
+
+    if (itemsOnStorage) {
+      return JSON.parse(itemsOnStorage)
+    }
+
+    return []
+  })
+
+  function onCartAdd(item, quantity) {
+    const newItem = { ...item, quantity: quantity }
+
+    const cartItems = [...cart, newItem]
+
+    setCart(cartItems)
+
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+  }
+
   return (
     <>
       {product && (
         <>
           <h1>{product.name}</h1>
           <p>{product.price}</p>
+          <p>10</p>
 
-          <button>Adicionar ao carrinho</button>
+          <button onClick={() => onCartAdd(product, 10)}>
+            Adicionar ao carrinho
+          </button>
         </>
       )}
     </>
