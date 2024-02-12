@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { useParams } from 'react-router-dom'
-import { api } from '../provider'
+import { api } from '../../provider'
 
 export const ProductDetails = () => {
   const params = useParams()

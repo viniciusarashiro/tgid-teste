@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Product } from './Product'
-import { api } from '../provider'
+import { Product } from '../Product/Product'
+import { api } from '../../provider'
 
 export const Products = () => {
   const [search, setSearch] = useState('')

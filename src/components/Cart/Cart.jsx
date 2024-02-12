@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ConfirmationModal } from './ConfirmationModal'
+import { ConfirmationModal } from '../ConfirmationModal/ConfirmationModal'
 
 export const Cart = () => {
   const [cart, setCart] = useState(() => {

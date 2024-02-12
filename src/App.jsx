@@ -1,9 +1,9 @@
 import React from 'react'
-import { Products } from './components/Products'
+import { Products } from './components/Products/Products'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ProductDetails } from './components/ProductDetails'
-import { Cart } from './components/Cart'
-import { Header } from './components/Header'
+import { ProductDetails } from './components/ProductDetails/ProductDetails'
+import { Cart } from './components/Cart/Cart'
+import { Header } from './components/Header/Header'
 
 export const App = () => {
   return (
