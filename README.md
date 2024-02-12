@@ -1,6 +1,6 @@
 # Loja Online - Aplicação para vaga Front-end TGID
 
-Este projeto é um simples projeto de loja online para uma vaga de front-end. A aplicação foi desenvolvida usando **React, Tailwind, Vitest e Axios**.
+Este projeto é um simples projeto de loja online para uma vaga de front-end. A aplicação foi desenvolvida usando **React, Tailwind, JSON-Server, Vitest e Axios**.
 
 <h1 align="center">
     <img src="./public/Screenshot_1.jpg" width="300"/>
@@ -36,9 +36,10 @@ cd tgid-teste
 npm install
 ```
 
-Por fim, execute o projeto:
+Por fim, execute o json-server e o projeto:
 
 ```bash
+json-server --watch dbTeste.json
 npm run dev
 ```
 
