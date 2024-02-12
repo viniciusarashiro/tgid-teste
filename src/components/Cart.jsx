@@ -89,17 +89,25 @@ export const Cart = () => {
             </tbody>
           ))
         ) : (
-          <p>Carrinho vazio</p>
+          <tr>
+            <td colSpan="4">Carrinho vazio</td>
+          </tr>
         )}
       </table>
 
       <div className="flex items-center mx-auto">
-        <button
-          className="uppercase bg-lime-400 p-4 rounded  hover:bg-lime-600"
-          onClick={() => alert('Deseja finalizar sua compra?')}
-        >
-          Finalizar compra
-        </button>
+        {cart.length > 0 ? (
+          <button
+            className="uppercase bg-lime-400 p-4 rounded  hover:bg-lime-600"
+            onClick={() => alert('Deseja finalizar sua compra?')}
+          >
+            Finalizar compra
+          </button>
+        ) : (
+          <button className=" bg-gray-300 text-gray-600 uppercase p-4 rounded  cursor-not-allowed">
+            Finalizar compra
+          </button>
+        )}
       </div>
     </div>
   )
