@@ -65,7 +65,6 @@ export const ProductDetails = () => {
     <>
       {product && (
         <>
-          {/* :grid-cols-2  grid-cols-3 */}
           <div className="md:grid flex flex-col  md:grid-cols-2  gap-6 auto-rows-[350px] mt-16  justify-center items-center">
             <img className="w-48 mx-auto border" src={product.image} alt="" />
             <div>
