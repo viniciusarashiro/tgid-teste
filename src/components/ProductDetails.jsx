@@ -39,7 +39,7 @@ export const ProductDetails = () => {
     return []
   })
 
-  function onCartAdd(item) {
+  const onCartAdd = (item) => {
     const newItem = { ...item }
 
     const cartItems = [...cart, newItem]
@@ -51,7 +51,7 @@ export const ProductDetails = () => {
     setIsInCart(true)
   }
 
-  function onCarRemove(id) {
+  const onCarRemove = (id) => {
     const cartItems = cart.filter((cart) => {
       return cart.id !== id
     })

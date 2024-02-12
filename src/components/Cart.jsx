@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ConfirmationModal } from './ConfirmationModal'
 
 export const Cart = () => {
@@ -12,13 +12,13 @@ export const Cart = () => {
     return []
   })
 
-  function onItemRemove(id) {
+  const onItemRemove = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id)
     setCart(updatedCart)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
   }
 
-  function handleUpdateItem(item, action) {
+  const handleUpdateItem = (item, action) => {
     let newQuantity = item.quantity
 
     if (action === 'decrease') {
@@ -45,7 +45,7 @@ export const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(updatedCart))
   }
 
-  function getTotal() {
+  const getTotal = () => {
     let total = 0
 
     cart.forEach((item) => {
@@ -66,6 +66,7 @@ export const Cart = () => {
   const openModal = () => {
     setIsOpen(true)
   }
+
   return (
     <div className="grid md:grid-cols-2">
       <div className="overflow-x-auto mb-10 md:overflow-x-visible">

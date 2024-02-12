@@ -21,7 +21,7 @@ export const Products = () => {
     fetchData()
   }, [])
 
-  function handleSearch(event) {
+  const handleSearch = (event) => {
     const query = event.target.value
 
     setSearch(query)
