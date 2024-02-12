@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { ConfirmationModal } from './ConfirmationModal'
 
 export const Cart = () => {
   const [cart, setCart] = useState(() => {
@@ -56,6 +57,15 @@ export const Cart = () => {
 
   const total = getTotal()
 
+  const [isOpen, setIsOpen] = useState(false)
+
+  const closeModal = () => {
+    setIsOpen(false)
+  }
+
+  const openModal = () => {
+    setIsOpen(true)
+  }
   return (
     <div className="grid md:grid-cols-2">
       <div className="overflow-x-auto mb-10 md:overflow-x-visible">
@@ -111,7 +121,7 @@ export const Cart = () => {
             <p className="mb-4">Total: R$ {total}</p>
             <button
               className="uppercase bg-lime-400 p-4 rounded  hover:bg-lime-600"
-              onClick={() => alert('Deseja finalizar sua compra?')}
+              onClick={openModal}
             >
               Finalizar compra
             </button>
@@ -122,6 +132,11 @@ export const Cart = () => {
           </button>
         )}
       </div>
+      <ConfirmationModal
+        closeModal={closeModal}
+        openModal={openModal}
+        isOpen={isOpen}
+      />
     </div>
   )
 }
