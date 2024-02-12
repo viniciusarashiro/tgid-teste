@@ -77,14 +77,14 @@ export const ProductDetails = () => {
 
               {isInCart ? (
                 <button
-                  className="uppercase  bg-red-400 p-4 rounded"
+                  className="uppercase  bg-red-400 p-4 rounded hover:bg-red-600"
                   onClick={() => onCarRemove(product.id)}
                 >
                   Remover do carrinho
                 </button>
               ) : (
                 <button
-                  className="uppercase bg-lime-400 p-4 rounded"
+                  className="uppercase bg-lime-400 p-4 rounded  hover:bg-lime-600"
                   onClick={() => onCartAdd(product)}
                 >
                   Adicionar ao carrinho
