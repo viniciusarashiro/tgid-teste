@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Cart = () => {
   const [cart, setCart] = useState(() => {
@@ -44,7 +44,17 @@ export const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(updatedCart))
   }
 
-  function getTotal() {}
+  function getTotal() {
+    let total = 0
+
+    cart.forEach((item) => {
+      total = total + item.price * item.quantity
+    })
+
+    return total
+  }
+
+  const total = getTotal()
 
   return (
     <div className="grid md:grid-cols-2">
@@ -63,7 +73,7 @@ export const Cart = () => {
               <tbody key={item.id}>
                 <tr className="border-t">
                   <td className="p-8">{item.name}</td>
-                  <td className="p-8">{item.price}</td>
+                  <td>R$ {item.price}</td>
                   <td className="p-8">
                     <button onClick={() => handleUpdateItem(item, 'decrease')}>
                       -
@@ -73,9 +83,7 @@ export const Cart = () => {
                       +
                     </button>
                   </td>
-                  <td className="p-8">
-                    {(item.quantity * item.price).toFixed(2)}
-                  </td>
+                  <td>R$ {(item.quantity * item.price).toFixed(2)}</td>
                   <td className="p-8">
                     <div className="flex justify-center items-center">
                       <button
@@ -99,12 +107,15 @@ export const Cart = () => {
 
       <div className="flex items-center mx-auto">
         {cart.length > 0 ? (
-          <button
-            className="uppercase bg-lime-400 p-4 rounded  hover:bg-lime-600"
-            onClick={() => alert('Deseja finalizar sua compra?')}
-          >
-            Finalizar compra
-          </button>
+          <div>
+            <p className="mb-4">Total: R$ {total}</p>
+            <button
+              className="uppercase bg-lime-400 p-4 rounded  hover:bg-lime-600"
+              onClick={() => alert('Deseja finalizar sua compra?')}
+            >
+              Finalizar compra
+            </button>
+          </div>
         ) : (
           <button className=" bg-gray-300 text-gray-600 uppercase p-4 rounded  cursor-not-allowed">
             Finalizar compra

@@ -72,7 +72,7 @@ export const ProductDetails = () => {
                 {product.name}
               </h1>
 
-              <p className="mb-6">Preço: {product.price}</p>
+              <p className="mb-6">Preço: R$ {product.price}</p>
 
               {isInCart ? (
                 <button

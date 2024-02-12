@@ -15,7 +15,7 @@ export const Product = (props) => {
         {props.item.name}
       </span>
       <img className="w-24 mx-auto" src={props.item.image} alt="" />
-      <p className="text-sm leading-6 text-slate-900">{props.item.price}</p>
+      <p className="text-sm leading-6 text-slate-900">R$ {props.item.price}</p>
       <button onClick={handleNavigate}>Ver detalhes</button>
     </div>
   )
