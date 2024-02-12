@@ -32,6 +32,7 @@ git clone https://github.com/viniciusarashiro/tgid-teste.git
 Depois, instale as dependências:
 
 ```bash
+cd tgid-teste
 npm install
 ```
 
