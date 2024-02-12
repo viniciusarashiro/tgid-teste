@@ -7,7 +7,7 @@ export const ProductDetails = () => {
   const params = useParams()
 
   const [product, setProduct] = useState(null)
-
+  const [isInCart, setIsInCart] = useState(false)
   const fetchData = async () => {
     try {
       const response = await api.get(`/products/${params.id}`)
@@ -20,7 +20,14 @@ export const ProductDetails = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+
+    const itemsOnStorage = localStorage.getItem('cart')
+    if (itemsOnStorage) {
+      const cartItems = JSON.parse(itemsOnStorage)
+      const itemInCart = cartItems.find((item) => item.id === params.id)
+      setIsInCart(!!itemInCart)
+    }
+  }, [params.id])
 
   const [cart, setCart] = useState(() => {
     const itemsOnStorage = localStorage.getItem('cart')
@@ -40,6 +47,18 @@ export const ProductDetails = () => {
     setCart(cartItems)
 
     localStorage.setItem('cart', JSON.stringify(cartItems))
+
+    setIsInCart(true)
+  }
+
+  function onCarRemove(id) {
+    const cartItems = cart.filter((cart) => {
+      return cart.id !== id
+    })
+
+    setCart(cartItems)
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+    setIsInCart(false)
   }
 
   return (
@@ -50,9 +69,15 @@ export const ProductDetails = () => {
           <p>{product.price}</p>
           <p>10</p>
 
-          <button onClick={() => onCartAdd(product, 10)}>
-            Adicionar ao carrinho
-          </button>
+          {isInCart ? (
+            <button onClick={() => onCarRemove(product.id)}>
+              Remover do carrinho
+            </button>
+          ) : (
+            <button onClick={() => onCartAdd(product, 10)}>
+              Adicionar ao carrinho
+            </button>
+          )}
         </>
       )}
     </>
