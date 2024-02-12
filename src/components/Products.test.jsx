@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Products } from './Products'
 import '@testing-library/jest-dom'
 
-describe('Visualize my courses', () => {
+describe('Products', () => {
   test('renders products input search', () => {
     render(
       <BrowserRouter>
