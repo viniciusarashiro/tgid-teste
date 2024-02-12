@@ -47,7 +47,7 @@ export const Products = () => {
 
       <div className="h-px bg-slate-700" />
 
-      <div className="grid grid-cols-4 gap-6 auto-rows-[250px]">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]">
         {filteredProducts &&
           filteredProducts.map((item) => <Product key={item.id} item={item} />)}
       </div>
